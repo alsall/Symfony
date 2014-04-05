@@ -1,0 +1,64 @@
+pnpc_scops_homepag:
+    pattern:  /
+    defaults: { _controller: PnpcScopsBundle:Scops:index}
+
+pnpc_scops_homepage:
+    pattern:  /stage
+    defaults: { _controller: PnpcScopsBundle:Scops:index}
+ 
+pnpc_scops_voir:
+    pattern:      /stage/liste/
+    defaults:  { _controller: PnpcScopsBundle:Scops:voir }
+
+pnpc_scops_voirplus:
+    pattern:      /stage/liste/{id}
+    defaults:  { _controller: PnpcScopsBundle:Scops:voirplus }
+    requirements:
+        id:  \d+
+
+pnpc_scops_ajouter:
+    pattern:      /stage/ajouter
+    defaults:  { _controller: PnpcScopsBundle:Scops:ajouter }
+ 
+pnpc_scops_modifier:
+    pattern:      /stage/modifier/{id}
+    defaults:  { _controller: PnpcScopsBundle:Scops:modifier }
+    requirements:
+        id:  \d+
+ 
+pnpc_scops_supprimer:
+    pattern:      /stage/supprimer/{id}
+    defaults:  { _controller: PnpcScopsBundle:Scops:supprimer }
+    requirements:
+        id:  \d+
+
+pnpc_scops_supprimerdoc:
+    pattern:      /stage/supprimerdoc/{id}
+    defaults:  { _controller: PnpcScopsBundle:Scops:supprimerdoc }
+    requirements:
+        id:  \d+
+
+pnpc_scops_diapo:
+    pattern:      /stage/photos/
+    defaults:  { _controller: PnpcScopsBundle:Scops:photo }
+
+pnpc_scops_doc:
+    pattern:      /stage/documents/
+    defaults:  { _controller: PnpcScopsBundle:Scops:doc }
+
+pnpc_scops_upload:
+    pattern:      /stage/documents/upload
+    defaults:  { _controller: PnpcScopsBundle:Scops:upload }
+
+pnpc_scops_uploadImage:
+    pattern:      /stage/photos/upload
+    defaults:  { _controller: PnpcScopsBundle:Scops:uploadImage }
+
+pnpc_scops_request_form:
+    pattern: /stage/liste/request_form
+    defaults: {_controller: PnpcScopsBundle:Scops:searchform}
+
+pnpc_scops_request_result:
+    pattern: /stage/liste/request_result
+    defaults: {_controller: PnpcScopsBundle:Scops:requete}
+

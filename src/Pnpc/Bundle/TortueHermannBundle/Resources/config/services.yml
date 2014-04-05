@@ -1,0 +1,7 @@
+parameters:
+#    pnpc_tortue_hermann.example.class: Pnpc\Bundle\TortueHermannBundle\Example
+
+services:
+#    pnpc_tortue_hermann.example:
+#        class: %pnpc_tortue_hermann.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

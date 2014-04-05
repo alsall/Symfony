@@ -1,0 +1,35 @@
+{% extends "PnpcScopsBundle::layout.html.twig" %}
+{% block title %}
+photos
+{%endblock%}
+ {%block body%}
+ <h4>Galerie photos</h4>
+{% block intern_body %}
+{#if is_granted("IS_AUTHENTICATED_REMEMBERED")#}
+<a href="{{ path('pnpc_scops_uploadImage')}}" class="btn">Ajouter une photo</a><br><br>
+{#endif#}
+    <div id="myCarousel" class="carousel slide">
+		<ol class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			<li data-target="#myCarousel" data-slide-to="1"></li>
+			<li data-target="#myCarousel" data-slide-to="2"></li>
+		</ol>
+		<!-- Carousel items -->
+		<div class="carousel-inner">
+			<div class="active item"><img alt="" src="{{asset('uploads/images/PRL117.jpg')}}"></img>
+				<div class="carousel-caption"><p>Image oiseau</p></div></div>
+				{%for galerie in liste%}
+					
+					<div class="item"><img alt="" src="{{ asset('uploads/images') }}/{{galerie.path}}" ></img>
+						<div class="carousel-caption"><p>{{galerie.commentaire}}. Image postée par {{galerie.auteur}}</p>
+						</div>
+					</div>
+				
+				{%endfor%}
+			</div>
+		<!-- Carousel nav -->
+		<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+		<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+		</div>
+	{%endblock%}
+	{%endblock%}

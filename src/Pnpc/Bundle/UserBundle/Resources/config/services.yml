@@ -1,0 +1,7 @@
+parameters:
+#    pnpc_user.example.class: Pnpc\Bundle\UserBundle\Example
+
+services:
+#    pnpc_user.example:
+#        class: %pnpc_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

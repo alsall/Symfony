@@ -1,0 +1,68 @@
+{% extends "PnpcScopsBundle::layout.html.twig" %}
+ 
+{% block title %}
+  Liste des Documents - {{ parent() }}
+{% endblock %}
+ {%block body%}
+ <h4>Liste des documents</h4>
+{% block intern_body %}
+{%if is_granted("IS_AUTHENTICATED_REMEMBERED")%}
+  <a href="{{ path('pnpc_scops_upload')}}" class="btn">Ajouter un document</a><br><br>{%endif%}
+
+
+ 
+ 
+	<div class="accordion" id="accordion2">
+		<div class="accordion-group">
+			<div class="accordion-heading">
+				<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+					Contacts collaborateurs
+				</a>
+			</div>
+			<div id="collapseOne" class="accordion-body collapse">
+		
+				<div class="accordion-inner">
+						
+			{%for documents in liste%}{%if documents.type=="contact"%}
+				<a href="/Symfony/web/uploads/documents/{{documents.path}}" target='_blank'><img src="{{ asset('bootstrap/img')}}/{{documents.format}}.gif" alt="Download full PDF" border='0'>{{documents.name}}</a>{%if is_granted("IS_AUTHENTICATED_REMEMBERED")%}<a href="{{ path('pnpc_scops_supprimerdoc',{'id':documents.id})}}"><img class="img-rounded" src="{{ asset('bootstrap/img/iconedelete.jpg')}}"></a>{%endif%} 
+				{%endif%}{%endfor%}
+				</div>
+				
+			</div>
+		</div>
+		<div class="accordion-group">
+			<div class="accordion-heading">
+				<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+					Documents de baguage
+				</a>
+			</div>
+			<div id="collapseTwo" class="accordion-body collapse">
+				
+				
+				<div class="accordion-inner">
+				{%for documents in liste%}{%if documents.type=="baguage"%}   
+				<a href="/Symfony/web/uploads/documents/{{documents.path}}" target='_blank'><img src="{{ asset('bootstrap/img')}}/{{documents.format}}.gif" alt="Download full PDF" border='0'>{{documents.name}}</a>{%if is_granted("IS_AUTHENTICATED_REMEMBERED")%}<a  href="{{ path('pnpc_scops_supprimerdoc',{'id':documents.id})}}"><img class="img-rounded" src="{{ asset('bootstrap/img/iconedelete.jpg')}}"></a>{%endif%}<br/>
+				{%endif%}{%endfor%}
+				</div>
+				
+				
+			</div>
+		</div>
+		<div class="accordion-group">
+			<div class="accordion-heading">
+				<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+					Documents administratifs
+				</a>
+			</div>
+			<div id="collapseThree" class="accordion-body collapse">
+				<div class="accordion-inner">
+					{%for documents in liste%}{%if documents.type=="gestion"%}
+				<a href="/Symfony/web/uploads/documents/{{documents.path}}" target='_blank'><img src="{{ asset('bootstrap/img')}}/{{documents.format}}.gif" alt="Download full PDF" border='0'>{{documents.name}}</a>{%if is_granted("IS_AUTHENTICATED_REMEMBERED")%}<a href="{{ path('pnpc_scops_supprimerdoc',{'id':documents.id})}}"><img class="img-rounded" src="{{ asset('bootstrap/img/iconedelete.jpg')}}"></a>{%endif%}<br/>
+				{%endif%}{%endfor%}
+				</div>
+			</div>
+		</div>
+	</div>
+
+ {% endblock %}
+{% endblock %}

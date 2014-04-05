@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+ <link rel="stylesheet" href="{{ asset('bundles/acmedemo/css/demo.css') }}" />
+{% endblock %}
+
+{% block body %}
+	<div>
+	<form>
+	<table>
+	<tr>
+	<td><label for="login">Utilisateur</label></td>
+	<td><input type="text" name="login" /></td>
+	</tr><br />
+	<tr><td><label for="passwd">Mot de passe</label></td>
+	<td><input type="password" name="passwd" /></td></tr><br />
+	<tr><td><label for="group">Groupe</label></td>
+	<td><select style="width:100px;" required>
+  		<option value="scops">Scops</option>
+  		<option value="tortue1">tortue1</option>
+  		<option value="tortue2">tortue2</option>
+  		<option value="reptile">Reptile</option>
+		<option value="Admin">Admin</option>
+	</select>
+	<input type="submit" value="Se Connecter" /></td></tr>
+	</table>
+	</form>
+	</div>
+<div>
+<button>dkfjsldkjf</button>
+</div>
+{% endblock %}
+
+
+
+

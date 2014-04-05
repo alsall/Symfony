@@ -1,0 +1,12 @@
+{% extends "PnpcScopsBundle::layout.html.twig" %}
+ 
+{% block title %}
+  Formulaire d'ajout - {{ parent() }}
+{% endblock %}
+ 
+{% block sdzblog_body %}
+ 
+ <h2>Ajouter un nouveau baguage</h2>
+{%include "PnpcScopsBundle:Scops:formulaire.html.twig" %}
+ 
+{% endblock %}

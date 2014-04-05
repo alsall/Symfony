@@ -1,0 +1,3 @@
+pnpc_tortue_hermann_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: PnpcTortueHermannBundle:Default:index }

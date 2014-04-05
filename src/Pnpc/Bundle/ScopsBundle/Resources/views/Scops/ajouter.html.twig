@@ -1,0 +1,127 @@
+{% extends "PnpcScopsBundle::layout.html.twig" %}
+ 
+{% block title %}
+  Formulaire d'ajout - {{ parent() }}
+{% endblock %}
+ 
+{% block stylesheets %}
+{{ parent() }}
+{#<link rel="stylesheet" href="{{ asset('bootstrap/css/date.css') }}" type="text/css" />#}
+{% endblock %}
+
+
+{% block intern_body %}
+
+ <h2>Ajouter un nouveau baguage</h2>
+{#include "PnpcScopsBundle:scops:formulaire.html.twig" #}
+{{ form_start(form) }}
+    {{ form_errors(form) }}
+<table>
+<tr>
+    <td>{{ form_row(form.pays) }}</td>
+    <td>{{ form_row(form.dept) }}</td>
+	<td>{{ form_row(form.localite) }}</td>
+    <td>{{ form_row(form.lieudit) }}</td>
+</tr>
+<tr>
+	<td>{{ form_row(form.centre) }}</td>
+	<td>{{ form_row(form.secteur) }}</td>
+	<td>{{ form_row(form.lat) }}</td>
+	<td>{{ form_row(form.lon) }}</td>
+	
+</tr>
+</table>
+<table>
+<tr>
+	<td>{{ form_row(form.numero) }}</td>
+	<td>{{ form_row(form.theme) }}</td>
+	<td>{{ form_row(form.bagueur) }}</td>
+	<td>{{ form_row(form.bague) }}</td>
+
+</tr>
+<tr>	
+	<td>{{ form_row(form.action) }}</td>
+	<td>{{ form_row(form.sexe) }}</td>
+	<td>{{ form_row(form.circ_repr) }}</td>
+	<td>{{ form_row(form.cond_repr) }}</td>
+	
+</tr>
+<tr>
+	<td>{{ form_row(form.nom_scientifique) }}</td>
+	<td>{{ form_row(form.nom_vernaculaire) }}</td>
+	<td id="search" autocomplete="off">{{ form_row(form.espece) }}</td>
+	<div id="results"></div>
+  		
+  	
+	<td>{{ form_row(form.age) }}</td>
+</tr>
+
+</table>
+<table>
+<tr>
+	<td>{{ form_row(form.annee) }}</td>
+	<td>{{ form_row(form.num_semaine) }}</td>
+	<td>{{ form_row(form.date) }}</td>
+	<td>{{ form_row(form.heure) }}</td>
+</tr>
+<tr>
+	<td>{{ form_row(form.fs) }}</td>
+	<td>{{ form_row(form.hs) }}</td>
+	<td>{{ form_row(form.lp) }}</td>
+	<td>{{ form_row(form.ad) }}</td>
+</tr>
+<tr>
+	<td>{{ form_row(form.ma) }}</td>
+	<td>{{ form_row(form.ds) }}</td>
+	<td>{{ form_row(form.cs) }}</td>
+	<td>{{ form_row(form.pc) }}</td>
+</tr>
+<tr>
+	<td>{{ form_row(form.pi) }}</td>
+	<td>{{ form_row(form.mu) }}</td>
+	<td>{{ form_row(form.es) }}</td>
+	<td>{{ form_row(form.nf) }}</td>
+</tr>
+<tr>
+	<td>{{ form_row(form.sg) }}</td>
+	<td>{{ form_row(form.re) }}</td>
+	<td>{{ form_row(form.rr) }}</td>
+	<td>{{ form_row(form.ge) }}</td>
+</tr>
+<tr>
+	<td>{{ form_row(form.fi) }}</td>
+	<td>{{ form_row(form.fg) }}</td>
+	<td>{{ form_row(form.fd) }}</td>
+	<td>{{ form_row(form.classe) }}</td>
+</tr>
+<tr>
+	<td>{{ form_row(form.tl) }}</td>
+	<td>{{ form_row(form.lt) }}</td>
+	<td>{{ form_row(form.bp) }}</td>
+	<td>{{ form_row(form.tq) }}</td>
+</tr>
+<tr>
+	<td>{{ form_row(form.cr) }}</td>
+	<td>{{ form_row(form.x1) }}</td>
+	<td>{{ form_row(form.x2) }}</td>
+	<td>{{ form_row(form.bg) }}</td>	
+</tr>
+
+	
+
+
+</table>
+
+{{ form_row(form.memo) }}
+
+
+    <input type="submit" />
+{{ form_end(form) }}
+
+ 
+{% endblock %}
+{% block javascripts %}
+    {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
+
+	<script type="text/javascript" src="{{ asset('bootstrap/js/script2.js') }}"></script>
+  {% endblock %}

@@ -1,0 +1,7 @@
+parameters:
+#    pnpc_scops.example.class: Pnpc\Bundle\ScopsBundle\Example
+
+services:
+#    pnpc_scops.example:
+#        class: %pnpc_scops.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
