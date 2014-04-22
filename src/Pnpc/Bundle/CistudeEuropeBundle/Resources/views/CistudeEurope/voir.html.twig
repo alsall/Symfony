@@ -1,0 +1,85 @@
+{% extends "PnpcCistudeEuropeBundle::layout.html.twig" %}
+ 
+{% block title %}
+  affichage  - {{ parent() }}
+{% endblock %}
+ 
+{% block intern_body %}
+<table>
+    
+		
+		<a class="btn alignement" href="{{ path('avro_csv_import_upload', {'alias': 'info'}) }}">Importer</a>
+		<a class="btn alignement" href="{{ path('avro_csv_export_export', {'alias': 'info'}) }}">Exporter</a>
+		<a class="btn alignement" href="{{ path('pnpc_scops_request_form')}}">Requetes</a>
+
+    
+
+<br><br>
+    {#<div class="pagination pagination-right">
+		<ul>
+			<li><a href="#">Prev</a></li>
+			<li><a href="#">1</a></li>
+			<li><a href="#">2</a></li>
+			<li><a href="#">3</a></li>
+			<li><a href="#">4</a></li>
+			<li><a href="#">5</a></li>
+			<li><a href="#">Next</a></li>
+		</ul>
+    </div>#}
+</table>	
+	
+<table class="table table-striped table-bordered">
+	<thead>
+			<tr>
+				<th>id</th>
+				<th>Theme</th>
+				<th>Date</th>
+				<th>N° semaine</th>
+				<th>Localité</th>
+				<th>Lieudit</th>
+				<th>Secteur</th>
+				<th>Action</th>
+				<th>Bg</th>
+				<th>Bague</th>
+				<th>Espèce</th>
+				<th>Option</th>	
+			</tr>
+	</thead>	
+{% for info in pagination %}
+	<tr>
+		<td>{{info.id}}</td>
+		<td>{{info.theme}}</td>
+		<td>{{info.date|date('y/m/d')}}</td>
+		<td>{{info.numsemaine}}</td>
+		<td>{{info.localite}}</td>
+		<td>{{info.lieudit}}</td>
+		<td>{{info.secteur}}</td>
+		<td>{{info.action}}</td>
+		<td>{{info.bg}}</td>
+		<td>{{info.bague}}</td>
+		<td>{{info.espece}}</td>
+		
+
+		<td>
+			<div class="btn-group">
+				<a class="btn btn-mini btn-success" href="{{ path('pnpc_scops_voirplus',{'id':info.id}) }}">Voir</a>
+				{#if is_granted("IS_AUTHENTICATED_REMEMBERED")#}
+				<button class="btn btn-mini btn-info dropdown-toggle" data-toggle="dropdown">
+					<span class="caret"></span>
+				</button>
+				
+				<ul class="dropdown-menu">
+					<li><a class=""  href="{{ path('pnpc_scops_modifier',{'id':info.id})}}">Modifier</a></li>
+					<li><a class="" href="{{ path('pnpc_scops_supprimer',{'id':info.id})}}">Supprimer</a></li>
+				</ul>
+				{#endif#}
+			</div>
+		</td>
+	</tr>
+{% endfor %}
+
+</table>
+<div class="navigation">
+		{{ knp_pagination_render(pagination) }}
+</div>
+{% endblock %}

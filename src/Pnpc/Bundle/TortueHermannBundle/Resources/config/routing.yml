@@ -1,3 +1,59 @@
 pnpc_tortue_hermann_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: PnpcTortueHermannBundle:Default:index }
+    pattern:  /
+    defaults: { _controller: PnpcTortueHermannBundle:TortueHermann:index }
+
+pnpc_tortue_hermann_voir:
+    pattern:      /liste/
+    defaults:  { _controller: PnpcTortueHermannBundle:TortueHermann:voir }
+
+pnpc_tortue_hermann_voirplus:
+    pattern:      /liste/{id}
+    defaults:  { _controller: PnpcTortueHermannBundle:TortueHermann:voirplus }
+    requirements:
+        id:  \d+
+
+pnpc_tortue_hermann_ajouter:
+    pattern:      /ajouter
+    defaults:  { _controller: PnpcTortueHermannBundle:TortueHermann:ajouter }
+
+pnpc_tortue_hermann_modifier:
+    pattern:      /modifier/{id}
+    defaults:  { _controller: PnpcTortueHermannBundle:TortueHermann:modifier }
+    requirements:
+        id:  \d+
+
+pnpc_tortue_hermann_supprimer:
+    pattern:      /supprimer/{id}
+    defaults:  { _controller: PnpcTortueHermannBundle:TortueHermann:supprimer }
+    requirements:
+        id:  \d+
+
+pnpc_tortue_hermann_supprimerdoc:
+    pattern:      /supprimerdoc/{id}
+    defaults:  { _controller: PnpcTortueHermannBundle:TortueHermann:supprimerdoc }
+    requirements:
+        id:  \d+
+
+pnpc_tortue_hermann_diapo:
+    pattern:      /photos/
+    defaults:  { _controller: PnpcTortueHermannBundle:TortueHermann:photo }
+
+pnpc_tortue_hermann_doc:
+    pattern:      /documents/
+    defaults:  { _controller: PnpcTortueHermannBundle:TortueHermann:doc }
+
+pnpc_tortue_hermann_upload:
+    pattern:      /documents/upload
+    defaults:  { _controller: PnpcTortueHermannBundle:TortueHermann:upload }
+
+pnpc_tortue_hermann_uploadImage:
+    pattern:      /photos/upload
+    defaults:  { _controller: PnpcTortueHermannBundle:TortueHermann:uploadImage }
+
+pnpc_tortue_hermann_request_form:
+    pattern: /liste/request_form
+    defaults: {_controller: PnpcTortueHermannBundle:TortueHermann:searchform}
+
+pnpc_tortue_hermann_request_result:
+    pattern: /liste/request_result
+    defaults: {_controller: PnpcTortueHermannBundle:TortueHermann:requete}

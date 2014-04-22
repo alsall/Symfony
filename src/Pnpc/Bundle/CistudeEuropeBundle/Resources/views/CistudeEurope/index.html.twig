@@ -1,0 +1,27 @@
+{% extends "PnpcCistudeEuropeBundle::layout.html.twig" %}
+   {%block title%}accueil {{parent()}}
+   
+   {%endblock%}
+   {%block intern_body%}
+   <h3>description ou enlever</h3>
+<h5>Aspects techniques</h5>
+
+<p>.</p>
+<h5>Objectifs scientifiques</h5>
+<p>.</p>
+<h5>Some news or not</h5>
+<p></p>
+
+<h5>PROTOCOLE Programme FLASH </h5>
+
+<p>Il concerne les espèces à afflux migratoires exceptionnels et temporaires. <br>
+
+-
+<span id="clickme">Cliquez-moi !</span>
+
+   {%endblock%}
+ {% block javascripts %}
+    {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
+
+	<script type="text/javascript" src="{{ asset('bootstrap/js/script2.js') }}"></script>
+  {% endblock %}

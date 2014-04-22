@@ -1,0 +1,173 @@
+{% extends "PnpcScopsBundle::layout.html.twig" %}
+ 
+{% block title %}
+  Modification - {{ parent() }}
+{% endblock %}
+ 
+{% block intern_body %}
+ 
+ <h2>Modification des données</h2>
+
+<a href="{{path('intern_bague_voir')}}">Retour</a>
+<table class="table table-striped table-bordered">
+	<thead>
+		<tr>
+			<th>Numero</th>
+			<th>Thème</th>
+			<th>Bagueur</th>
+			<th>Pays</th>
+			<th>Dept</th>
+			<th>Localité</th>
+			<th>Année</th>
+			<th>N° Semaine</th>
+			<th>Date</th>
+			<th>Lieudit</th>
+			<th>Fs</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>{{info.numero}}</td>
+			<td>{{info.theme}}</td>
+			<td>{{info.bagueur}}</td>
+			<td>{{info.pays}}</td>
+			<td>{{info.dept}}</td>
+			<td>{{info.localite}}</td>
+			<td>{{info.annee}}</td>
+			<td>{{info.numsemaine}}</td>
+			<td>{{info.date|date}}</td>
+			<td>{{info.lieudit}}</td>
+			<td>{{info.fs}}</td>
+		</tr>
+	</body>
+</table>
+
+<table class="table table-striped table-bordered">
+	<thead>
+		<tr>
+			<th>Hs</th>
+			<th>Ds</th>
+			<th>Heure</th>
+			<th>Action</th>
+			<th>Centre</th>
+			<th>Bague</th>
+			<th>Circ Repr</th>
+			<th>Cond Repr</th>
+			<th>Nom scientifique</th>
+			<th>Nom vernaculaire</th>
+			<th>Espèce</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>{{info.hs}}</td>
+			<td>{{info.ds}}</td>
+			<td>{{info.heure|date}}</td>
+			<td>{{info.action}}</td>
+			<td>{{info.centre}}</td>
+			<td>{{info.bague}}</td>
+			<td>{{info.circrepr}}</td>
+			<td>{{info.condrepr}}</td>
+			<td>{{info.nomscientifique}}</td>
+			<td>{{info.nomvernaculaire}}</td>
+			<td>{{info.espece}}</td>
+		</tr>
+	</tbody>
+</table>
+
+<table class="table table-striped table-bordered">
+	<thead>
+		<tr>
+			<th>Sexe</th>
+			<th>Age</th>
+			<th>Lp</th>
+			<th>Ad</th>
+			<th>Ma</th>
+			<th>Secteur</th>
+			<th>Bg</th>
+			<th>Cs</th>
+			<th>Pc</th>
+			<th>Pi</th>
+			<th>Mu</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>{{info.sexe}}</td>
+			<td>{{info.age}}</td>
+			<td>{{info.lp}}</td>
+			<td>{{info.ad}}</td>
+			<td>{{info.ma}}</td>
+			<td>{{info.secteur}}</td>
+			<td>{{info.bg}}</td>
+			<td>{{info.cs}}</td>
+			<td>{{info.pc}}</td>
+			<td>{{info.pi}}</td>
+			<td>{{info.mu}}</td>
+		</tr>
+	</tbody>
+</table>
+
+<table class="table table-striped table-bordered">
+	<thead>
+		<tr>
+			<th>Es</th>
+			<th>Nf</th>
+			<th>Sg</th>
+			<th>Re</th>
+			<th>Rr</th>
+			<th>Ge</th>
+			<th>Lattitude</th>
+			<th>Longitude</th>
+			<th>Fi</th>
+			<th>Fg</th>
+			<th>Fd</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>{{info.es}}</td>
+			<td>{{info.nf}}</td>
+			<td>{{info.sg}}</td>
+			<td>{{info.re}}</td>
+			<td>{{info.rr}}</td>
+			<td>{{info.ge}}</td>
+			<td>{{info.lat}}</td>
+			<td>{{info.lon}}</td>
+			<td>{{info.fi}}</td>
+			<td>{{info.fg}}</td>
+			<td>{{info.fd}}</td>
+		</tr>
+	</tbody>
+</table>
+
+<table class="table table-striped table-bordered">
+	<thead>
+		<tr>
+			<th>Classe</th>
+			<th>tl</th>
+			<th>lt</th>
+			<th>bp</th>
+			<th>tq</th>
+			<th>cr</th>
+			<th>X1</th>
+			<th>X2</th>
+			<th>Memo</th>
+		</tr>
+	</thead>
+	</tbody>
+		<tr>
+			<td>{{info.classe}}</td>
+			<td>{{info.tl}}</td>
+			<td>{{info.lt}}</td>
+			<td>{{info.bp}}</td>
+			<td>{{info.tq}}</td>
+			<td>{{info.cr}}</td>
+			<td>{{info.x1}}</td>
+			<td>{{info.x2}}</td>
+			<td>{{info.memo}}</td>
+		</tr>
+	</tbody>
+</table>
+ 
+{% endblock %}

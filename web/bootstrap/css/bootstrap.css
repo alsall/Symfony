@@ -6148,7 +6148,7 @@ a.badge:focus {
   margin: 0px 0px 0 0px;
   color: inherit;
   background-color:#86C9FFd;
-  background: url('../img/imageaccueil.jpg') no-repeat top left;
+  /*background: url('../img/imageaccueil.jpg') no-repeat top left;*/
  
   border-radius: 30px;
 
@@ -6219,4 +6219,13 @@ color: white;
 	color: white;
 	padding-left: 20px;
 	font-size: 1.2em;
+}
+.scops{
+  background: url('../img/imageaccueil.jpg') no-repeat top left;
+}
+.th{
+  background: url('../img/imagefetee.jpg') no-repeat top left;
+}
+.ce{
+  background: url('../img/imagefete.jpg') no-repeat top left;
 }

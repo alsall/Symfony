@@ -8,8 +8,11 @@ security:
         Pnpc\Bundle\UserBundle\Entity\User: sha512
 
     role_hierarchy:
-        ROLE_ADMIN:       ROLE_USER
-        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        ROLE_ADMIN:        [ROLE_USER, ROLE_USER_SCOPS, ROLE_USER_TORTUE, ROLE_USER_CISTUDE] 
+        ROLE_USER_SCOPS:   ROLE_USER
+        ROLE_USER_TORTUE:  ROLE_USER
+        ROLE_USER_CISTUDE: ROLE_USER
+        ROLE_SUPER_ADMIN:  [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
         #in_memory:
@@ -35,17 +38,21 @@ security:
             provider:    main
             form_login:
                 check_path: fos_user_security_check
-                login_path: fos_user_security_login
+                login_path: /#fos_user_security_login
             logout:
                 path:   fos_user_security_logout
-                target: /stage
+                target: /
                 invalidate_session:    false
             anonymous:  true
             remember_me:
-                key:    %secret%	
+                key:    %secret%
+                #lifetime: 1800	
             #http_basic:
             #    realm: "Secured Demo Area"
 
     access_control:
-        # - { path: ^/demo/secured/hello/admin/, roles: ROLE_ADMIN }
-        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        - { path: ^/admin/, roles: ROLE_ADMIN }
+        # - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        - { path: ^/Scops/, roles: ROLE_USER_SCOPS }
+        - { path: ^/CistudeEurope/, roles: ROLE_USER_TORTUE }
+        - { path: ^/TortueHermann/, roles: ROLE_USER_CISTUDE }

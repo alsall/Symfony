@@ -6,16 +6,18 @@
  
 {% block stylesheets %}
 {{ parent() }}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 {#<link rel="stylesheet" href="{{ asset('bootstrap/css/date.css') }}" type="text/css" />#}
 {% endblock %}
 
 
 {% block intern_body %}
-
+<div class="ui-widget">
  <h2>Ajouter un nouveau baguage</h2>
 {#include "PnpcScopsBundle:scops:formulaire.html.twig" #}
 {{ form_start(form) }}
     {{ form_errors(form) }}
+
 <table>
 <tr>
     <td>{{ form_row(form.pays) }}</td>
@@ -49,8 +51,8 @@
 <tr>
 	<td>{{ form_row(form.nom_scientifique) }}</td>
 	<td>{{ form_row(form.nom_vernaculaire) }}</td>
-	<td id="search" autocomplete="off">{{ form_row(form.espece) }}</td>
-	<div id="results"></div>
+	<td>{{ form_row(form.espece) }}</td>
+	
   		
   	
 	<td>{{ form_row(form.age) }}</td>
@@ -101,7 +103,7 @@
 	<td>{{ form_row(form.tq) }}</td>
 </tr>
 <tr>
-	<td>{{ form_row(form.cr) }}</td>
+	<div class="ui-widget"><td>{{ form_row(form.cr) }}</td></div>
 	<td>{{ form_row(form.x1) }}</td>
 	<td>{{ form_row(form.x2) }}</td>
 	<td>{{ form_row(form.bg) }}</td>	
@@ -115,13 +117,102 @@
 {{ form_row(form.memo) }}
 
 
-    <input type="submit" />
+    <input type="submit" value="Envoyer"/>
 {{ form_end(form) }}
 
+
+
+<input id="tags">
+</div>
  
 {% endblock %}
 {% block javascripts %}
     {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
+     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+     <script>
+$(function() {
+var availableTags = [
 
+"ALEUFA",
+"ANAERA",
+"ANAHOS",
+"ANTRIS",
+"BRASIS",
+"CALENS",
+"CALUTA",
+"CARINA",
+"CARLIS",
+"CARMEA",
+"CARMEACAB",
+"CARMEAFLA",
+"CARMEAROS",
+"CARNUS",
+"CARRIS",
+"CERRIS",
+"CERYLA",
+"CHLDUS",
+"CICLUS",
+"COCTES",
+"CODULA",
+"CODULAMON",
+"CODULASPE",
+"COLBUS",
+"COLNAS",
+"CORONE",
+"CORONEIUS",
+"CORONENIX",
+"CORONEONE",
+"CORRAX",
+"COTNIX",
+"CRUFIC",
+"DENTOS",
+"DOMMON",
+"FALTEO",
+"FICUCA",
+"FICUCAHYP",
+"FULLIS",
+"GALAGO",
+"GALATA",
+"HALLLA",
+"LAITOR",
+"LANMER",
+"LANRIO",
+"MELACA",
+"MELARA",
+"MOTFLAEGG",
+"MOTFLAEMA",
+"MOTFLAIAE",
+"MOTFLALLA",
+"OENURA",
+"PACINC",
+"PAPALU",
+"PARNUS",
+"PHACUS",
+"PICDIS",
+"PICDISSHA",
+"PICDISVIR",
+"PLADIA",
+"PORANA",
+"RHODOR",
+"SERLLA",
+"SERLLACOR",
+"STEAEA",
+"STENDO",
+"STRATA",
+"STRCTO",
+"TACLIS",
+"TACMEL",
+"TADRNA",
+"TETRIX"
+
+
+
+];
+$( "#tags" ).autocomplete({
+source: availableTags
+});
+});
+</script>
 	<script type="text/javascript" src="{{ asset('bootstrap/js/script2.js') }}"></script>
   {% endblock %}

@@ -1,0 +1,21 @@
+{% extends "PnpcTortueHermannBundle::layout.html.twig" %}
+   {%block title%}accueil {{parent()}}
+   
+   {%endblock%}
+   {%block intern_body%}
+   <h4>Quelques infos </h4>
+<h5>Aspects techniques</h5>
+
+<p></p>
+<h5>Objectifs scientifiques</h5>
+<p>.</p>
+<h5>Le PNRO</h5>
+
+<span id="clickme">Cliquez-moi !</span>
+
+   {%endblock%}
+ {% block javascripts %}
+    {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
+
+	<script type="text/javascript" src="{{ asset('bootstrap/js/script2.js') }}"></script>
+  {% endblock %}

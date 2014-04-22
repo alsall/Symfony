@@ -27,37 +27,208 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
         $context = $this->context;
         $request = $this->request;
 
-        if (0 === strpos($pathinfo, '/hello')) {
+        if (0 === strpos($pathinfo, '/CistudeEurope')) {
             // pnpc_cistude_europe_homepage
-            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'pnpc_cistude_europe_homepage')), array (  '_controller' => 'Pnpc\\Bundle\\CistudeEuropeBundle\\Controller\\DefaultController::indexAction',));
+            if (rtrim($pathinfo, '/') === '/CistudeEurope') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'pnpc_cistude_europe_homepage');
+                }
+
+                return array (  '_controller' => 'Pnpc\\Bundle\\CistudeEuropeBundle\\Controller\\CistudeEuropeController::indexAction',  '_route' => 'pnpc_cistude_europe_homepage',);
             }
 
+            if (0 === strpos($pathinfo, '/CistudeEurope/liste')) {
+                // pnpc_cistude_europe_voir
+                if (rtrim($pathinfo, '/') === '/CistudeEurope/liste') {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'pnpc_cistude_europe_voir');
+                    }
+
+                    return array (  '_controller' => 'Pnpc\\Bundle\\CistudeEuropeBundle\\Controller\\CistudeEuropeController::voirAction',  '_route' => 'pnpc_cistude_europe_voir',);
+                }
+
+                // pnpc_cistude_europe_voirplus
+                if (preg_match('#^/CistudeEurope/liste/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pnpc_cistude_europe_voirplus')), array (  '_controller' => 'Pnpc\\Bundle\\CistudeEuropeBundle\\Controller\\CistudeEuropeController::voirplusAction',));
+                }
+
+            }
+
+            // pnpc_cistude_europe_ajouter
+            if ($pathinfo === '/CistudeEurope/ajouter') {
+                return array (  '_controller' => 'Pnpc\\Bundle\\CistudeEuropeBundle\\Controller\\CistudeEuropeController::ajouterAction',  '_route' => 'pnpc_cistude_europe_ajouter',);
+            }
+
+            // pnpc_cistude_europe_modifier
+            if (0 === strpos($pathinfo, '/CistudeEurope/modifier') && preg_match('#^/CistudeEurope/modifier/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'pnpc_cistude_europe_modifier')), array (  '_controller' => 'Pnpc\\Bundle\\CistudeEuropeBundle\\Controller\\CistudeEuropeController::modifierAction',));
+            }
+
+            if (0 === strpos($pathinfo, '/CistudeEurope/supprimer')) {
+                // pnpc_cistude_europe_supprimer
+                if (preg_match('#^/CistudeEurope/supprimer/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pnpc_cistude_europe_supprimer')), array (  '_controller' => 'Pnpc\\Bundle\\CistudeEuropeBundle\\Controller\\CistudeEuropeController::supprimerAction',));
+                }
+
+                // pnpc_cistude_europe_supprimerdoc
+                if (0 === strpos($pathinfo, '/CistudeEurope/supprimerdoc') && preg_match('#^/CistudeEurope/supprimerdoc/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pnpc_cistude_europe_supprimerdoc')), array (  '_controller' => 'Pnpc\\Bundle\\CistudeEuropeBundle\\Controller\\CistudeEuropeController::supprimerdocAction',));
+                }
+
+            }
+
+            // pnpc_cistude_europe_diapo
+            if (rtrim($pathinfo, '/') === '/CistudeEurope/photos') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'pnpc_cistude_europe_diapo');
+                }
+
+                return array (  '_controller' => 'Pnpc\\Bundle\\CistudeEuropeBundle\\Controller\\CistudeEuropeController::photoAction',  '_route' => 'pnpc_cistude_europe_diapo',);
+            }
+
+            // pnpc_cistude_europe_doc
+            if (rtrim($pathinfo, '/') === '/CistudeEurope/documents') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'pnpc_cistude_europe_doc');
+                }
+
+                return array (  '_controller' => 'Pnpc\\Bundle\\CistudeEuropeBundle\\Controller\\CistudeEuropeController::docAction',  '_route' => 'pnpc_cistude_europe_doc',);
+            }
+
+            // pnpc_cistude_europe_upload
+            if ($pathinfo === '/CistudeEurope/CistudeEurope/documents/upload') {
+                return array (  '_controller' => 'Pnpc\\Bundle\\CistudeEuropeBundle\\Controller\\CistudeEuropeController::uploadAction',  '_route' => 'pnpc_cistude_europe_upload',);
+            }
+
+            // pnpc_cistude_europe_uploadImage
+            if ($pathinfo === '/CistudeEurope/photos/upload') {
+                return array (  '_controller' => 'Pnpc\\Bundle\\CistudeEuropeBundle\\Controller\\CistudeEuropeController::uploadImageAction',  '_route' => 'pnpc_cistude_europe_uploadImage',);
+            }
+
+            if (0 === strpos($pathinfo, '/CistudeEurope/liste/request_')) {
+                // pnpc_cistude_europe_request_form
+                if ($pathinfo === '/CistudeEurope/liste/request_form') {
+                    return array (  '_controller' => 'Pnpc\\Bundle\\CistudeEuropeBundle\\Controller\\CistudeEuropeController::searchformAction',  '_route' => 'pnpc_cistude_europe_request_form',);
+                }
+
+                // pnpc_cistude_europe_request_result
+                if ($pathinfo === '/CistudeEurope/liste/request_result') {
+                    return array (  '_controller' => 'Pnpc\\Bundle\\CistudeEuropeBundle\\Controller\\CistudeEuropeController::requeteAction',  '_route' => 'pnpc_cistude_europe_request_result',);
+                }
+
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/TortueHermann')) {
             // pnpc_tortue_hermann_homepage
-            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'pnpc_tortue_hermann_homepage')), array (  '_controller' => 'Pnpc\\Bundle\\TortueHermannBundle\\Controller\\DefaultController::indexAction',));
+            if (rtrim($pathinfo, '/') === '/TortueHermann') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'pnpc_tortue_hermann_homepage');
+                }
+
+                return array (  '_controller' => 'Pnpc\\Bundle\\TortueHermannBundle\\Controller\\TortueHermannController::indexAction',  '_route' => 'pnpc_tortue_hermann_homepage',);
+            }
+
+            if (0 === strpos($pathinfo, '/TortueHermann/liste')) {
+                // pnpc_tortue_hermann_voir
+                if (rtrim($pathinfo, '/') === '/TortueHermann/liste') {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'pnpc_tortue_hermann_voir');
+                    }
+
+                    return array (  '_controller' => 'Pnpc\\Bundle\\TortueHermannBundle\\Controller\\TortueHermannController::voirAction',  '_route' => 'pnpc_tortue_hermann_voir',);
+                }
+
+                // pnpc_tortue_hermann_voirplus
+                if (preg_match('#^/TortueHermann/liste/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pnpc_tortue_hermann_voirplus')), array (  '_controller' => 'Pnpc\\Bundle\\TortueHermannBundle\\Controller\\TortueHermannController::voirplusAction',));
+                }
+
+            }
+
+            // pnpc_tortue_hermann_ajouter
+            if ($pathinfo === '/TortueHermann/ajouter') {
+                return array (  '_controller' => 'Pnpc\\Bundle\\TortueHermannBundle\\Controller\\TortueHermannController::ajouterAction',  '_route' => 'pnpc_tortue_hermann_ajouter',);
+            }
+
+            // pnpc_tortue_hermann_modifier
+            if (0 === strpos($pathinfo, '/TortueHermann/modifier') && preg_match('#^/TortueHermann/modifier/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'pnpc_tortue_hermann_modifier')), array (  '_controller' => 'Pnpc\\Bundle\\TortueHermannBundle\\Controller\\TortueHermannController::modifierAction',));
+            }
+
+            if (0 === strpos($pathinfo, '/TortueHermann/supprimer')) {
+                // pnpc_tortue_hermann_supprimer
+                if (preg_match('#^/TortueHermann/supprimer/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pnpc_tortue_hermann_supprimer')), array (  '_controller' => 'Pnpc\\Bundle\\TortueHermannBundle\\Controller\\TortueHermannController::supprimerAction',));
+                }
+
+                // pnpc_tortue_hermann_supprimerdoc
+                if (0 === strpos($pathinfo, '/TortueHermann/supprimerdoc') && preg_match('#^/TortueHermann/supprimerdoc/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'pnpc_tortue_hermann_supprimerdoc')), array (  '_controller' => 'Pnpc\\Bundle\\TortueHermannBundle\\Controller\\TortueHermannController::supprimerdocAction',));
+                }
+
+            }
+
+            // pnpc_tortue_hermann_diapo
+            if (rtrim($pathinfo, '/') === '/TortueHermann/photos') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'pnpc_tortue_hermann_diapo');
+                }
+
+                return array (  '_controller' => 'Pnpc\\Bundle\\TortueHermannBundle\\Controller\\TortueHermannController::photoAction',  '_route' => 'pnpc_tortue_hermann_diapo',);
+            }
+
+            if (0 === strpos($pathinfo, '/TortueHermann/documents')) {
+                // pnpc_tortue_hermann_doc
+                if (rtrim($pathinfo, '/') === '/TortueHermann/documents') {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'pnpc_tortue_hermann_doc');
+                    }
+
+                    return array (  '_controller' => 'Pnpc\\Bundle\\TortueHermannBundle\\Controller\\TortueHermannController::docAction',  '_route' => 'pnpc_tortue_hermann_doc',);
+                }
+
+                // pnpc_tortue_hermann_upload
+                if ($pathinfo === '/TortueHermann/documents/upload') {
+                    return array (  '_controller' => 'Pnpc\\Bundle\\TortueHermannBundle\\Controller\\TortueHermannController::uploadAction',  '_route' => 'pnpc_tortue_hermann_upload',);
+                }
+
+            }
+
+            // pnpc_tortue_hermann_uploadImage
+            if ($pathinfo === '/TortueHermann/photos/upload') {
+                return array (  '_controller' => 'Pnpc\\Bundle\\TortueHermannBundle\\Controller\\TortueHermannController::uploadImageAction',  '_route' => 'pnpc_tortue_hermann_uploadImage',);
+            }
+
+            if (0 === strpos($pathinfo, '/TortueHermann/liste/request_')) {
+                // pnpc_tortue_hermann_request_form
+                if ($pathinfo === '/TortueHermann/liste/request_form') {
+                    return array (  '_controller' => 'Pnpc\\Bundle\\TortueHermannBundle\\Controller\\TortueHermannController::searchformAction',  '_route' => 'pnpc_tortue_hermann_request_form',);
+                }
+
+                // pnpc_tortue_hermann_request_result
+                if ($pathinfo === '/TortueHermann/liste/request_result') {
+                    return array (  '_controller' => 'Pnpc\\Bundle\\TortueHermannBundle\\Controller\\TortueHermannController::requeteAction',  '_route' => 'pnpc_tortue_hermann_request_result',);
+                }
+
             }
 
         }
 
-        // pnpc_scops_homepag
-        if (rtrim($pathinfo, '/') === '') {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'pnpc_scops_homepag');
-            }
-
-            return array (  '_controller' => 'Pnpc\\Bundle\\ScopsBundle\\Controller\\ScopsController::indexAction',  '_route' => 'pnpc_scops_homepag',);
-        }
-
-        if (0 === strpos($pathinfo, '/stage')) {
+        if (0 === strpos($pathinfo, '/Scops')) {
             // pnpc_scops_homepage
-            if ($pathinfo === '/stage') {
+            if (rtrim($pathinfo, '/') === '/Scops') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'pnpc_scops_homepage');
+                }
+
                 return array (  '_controller' => 'Pnpc\\Bundle\\ScopsBundle\\Controller\\ScopsController::indexAction',  '_route' => 'pnpc_scops_homepage',);
             }
 
-            if (0 === strpos($pathinfo, '/stage/liste')) {
+            if (0 === strpos($pathinfo, '/Scops/liste')) {
                 // pnpc_scops_voir
-                if (rtrim($pathinfo, '/') === '/stage/liste') {
+                if (rtrim($pathinfo, '/') === '/Scops/liste') {
                     if (substr($pathinfo, -1) !== '/') {
                         return $this->redirect($pathinfo.'/', 'pnpc_scops_voir');
                     }
@@ -66,37 +237,37 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
                 }
 
                 // pnpc_scops_voirplus
-                if (preg_match('#^/stage/liste/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                if (preg_match('#^/Scops/liste/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'pnpc_scops_voirplus')), array (  '_controller' => 'Pnpc\\Bundle\\ScopsBundle\\Controller\\ScopsController::voirplusAction',));
                 }
 
             }
 
             // pnpc_scops_ajouter
-            if ($pathinfo === '/stage/ajouter') {
+            if ($pathinfo === '/Scops/ajouter') {
                 return array (  '_controller' => 'Pnpc\\Bundle\\ScopsBundle\\Controller\\ScopsController::ajouterAction',  '_route' => 'pnpc_scops_ajouter',);
             }
 
             // pnpc_scops_modifier
-            if (0 === strpos($pathinfo, '/stage/modifier') && preg_match('#^/stage/modifier/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+            if (0 === strpos($pathinfo, '/Scops/modifier') && preg_match('#^/Scops/modifier/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'pnpc_scops_modifier')), array (  '_controller' => 'Pnpc\\Bundle\\ScopsBundle\\Controller\\ScopsController::modifierAction',));
             }
 
-            if (0 === strpos($pathinfo, '/stage/supprimer')) {
+            if (0 === strpos($pathinfo, '/Scops/supprimer')) {
                 // pnpc_scops_supprimer
-                if (preg_match('#^/stage/supprimer/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                if (preg_match('#^/Scops/supprimer/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'pnpc_scops_supprimer')), array (  '_controller' => 'Pnpc\\Bundle\\ScopsBundle\\Controller\\ScopsController::supprimerAction',));
                 }
 
                 // pnpc_scops_supprimerdoc
-                if (0 === strpos($pathinfo, '/stage/supprimerdoc') && preg_match('#^/stage/supprimerdoc/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                if (0 === strpos($pathinfo, '/Scops/supprimerdoc') && preg_match('#^/Scops/supprimerdoc/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'pnpc_scops_supprimerdoc')), array (  '_controller' => 'Pnpc\\Bundle\\ScopsBundle\\Controller\\ScopsController::supprimerdocAction',));
                 }
 
             }
 
             // pnpc_scops_diapo
-            if (rtrim($pathinfo, '/') === '/stage/photos') {
+            if (rtrim($pathinfo, '/') === '/Scops/photos') {
                 if (substr($pathinfo, -1) !== '/') {
                     return $this->redirect($pathinfo.'/', 'pnpc_scops_diapo');
                 }
@@ -104,9 +275,9 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
                 return array (  '_controller' => 'Pnpc\\Bundle\\ScopsBundle\\Controller\\ScopsController::photoAction',  '_route' => 'pnpc_scops_diapo',);
             }
 
-            if (0 === strpos($pathinfo, '/stage/documents')) {
+            if (0 === strpos($pathinfo, '/Scops/documents')) {
                 // pnpc_scops_doc
-                if (rtrim($pathinfo, '/') === '/stage/documents') {
+                if (rtrim($pathinfo, '/') === '/Scops/documents') {
                     if (substr($pathinfo, -1) !== '/') {
                         return $this->redirect($pathinfo.'/', 'pnpc_scops_doc');
                     }
@@ -115,30 +286,39 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
                 }
 
                 // pnpc_scops_upload
-                if ($pathinfo === '/stage/documents/upload') {
+                if ($pathinfo === '/Scops/documents/upload') {
                     return array (  '_controller' => 'Pnpc\\Bundle\\ScopsBundle\\Controller\\ScopsController::uploadAction',  '_route' => 'pnpc_scops_upload',);
                 }
 
             }
 
             // pnpc_scops_uploadImage
-            if ($pathinfo === '/stage/photos/upload') {
+            if ($pathinfo === '/Scops/photos/upload') {
                 return array (  '_controller' => 'Pnpc\\Bundle\\ScopsBundle\\Controller\\ScopsController::uploadImageAction',  '_route' => 'pnpc_scops_uploadImage',);
             }
 
-            if (0 === strpos($pathinfo, '/stage/liste/request_')) {
+            if (0 === strpos($pathinfo, '/Scops/liste/request_')) {
                 // pnpc_scops_request_form
-                if ($pathinfo === '/stage/liste/request_form') {
+                if ($pathinfo === '/Scops/liste/request_form') {
                     return array (  '_controller' => 'Pnpc\\Bundle\\ScopsBundle\\Controller\\ScopsController::searchformAction',  '_route' => 'pnpc_scops_request_form',);
                 }
 
                 // pnpc_scops_request_result
-                if ($pathinfo === '/stage/liste/request_result') {
+                if ($pathinfo === '/Scops/liste/request_result') {
                     return array (  '_controller' => 'Pnpc\\Bundle\\ScopsBundle\\Controller\\ScopsController::requeteAction',  '_route' => 'pnpc_scops_request_result',);
                 }
 
             }
 
+        }
+
+        // accueil
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'accueil');
+            }
+
+            return array (  '_controller' => 'Pnpc\\Bundle\\UserBundle\\Controller\\UserController::loginAction',  '_route' => 'accueil',);
         }
 
         if (0 === strpos($pathinfo, '/import')) {

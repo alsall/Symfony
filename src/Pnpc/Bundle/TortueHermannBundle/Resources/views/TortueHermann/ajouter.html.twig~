@@ -1,0 +1,95 @@
+{% extends "PnpcTortueHermannBundle::layout.html.twig" %}
+ 
+{% block title %}
+  Formulaire d'ajout - {{ parent() }}
+{% endblock %}
+ 
+{% block stylesheets %}
+{{ parent() }}
+{#<link rel="stylesheet" href="{{ asset('bootstrap/css/date.css') }}" type="text/css" />#}
+{% endblock %}
+
+
+{% block intern_body %}
+
+ <h2>Ajouter un nouveau baguage</h2>
+{#include "PnpcScopsBundle:scops:formulaire.html.twig" #}
+{{ form_start(form) }}
+    {{ form_errors(form) }}
+<table>
+<tr>
+    <td>{{ form_row(form.pays) }}</td>
+    <td>{{ form_row(form.codeInsee) }}</td>
+	<td>{{ form_row(form.localite) }}</td>
+    <td>{{ form_row(form.lieudit) }}</td>
+</tr>
+<tr>
+	<td>{{ form_row(form.date) }}</td>
+	<td>{{ form_row(form.protocole) }}</td>
+	<td>{{ form_row(form.heureDebut) }}</td>
+	<td>{{ form_row(form.heureFin) }}</td>
+	
+</tr>
+</table>
+<table>
+<tr>
+	<td>{{ form_row(form.interruption) }}</td>
+	<td>{{ form_row(form.dureeProspection) }}</td>
+	<td>{{ form_row(form.temperature) }}</td>
+	<td>{{ form_row(form.nebulosite) }}</td>
+
+</tr>
+<tr>	
+	<td>{{ form_row(form.precipitation) }}</td>
+	<td>{{ form_row(form.vent) }}</td>
+	<td>{{ form_row(form.visibilite) }}</td>
+	<td>{{ form_row(form.autre) }}</td>
+	
+</tr>
+<tr>
+	<td>{{ form_row(form.observateur) }}</td>
+	<td>{{ form_row(form.heureObservation) }}</td>
+	<td id="search" autocomplete="off">{{ form_row(form.site) }}</td>
+	<div id="results"></div>
+  		
+  	
+	<td>{{ form_row(form.latWgs84) }}</td>
+</tr>
+
+</table>
+<table>
+<tr>
+	<td>{{ form_row(form.longWgs84) }}</td>
+	<td>{{ form_row(form.num_marquage) }}</td>
+	<td>{{ form_row(form.action) }}</td>
+	<td>{{ form_row(form.sexe) }}</td>
+</tr>
+<tr>
+	<td>{{ form_row(form.taille) }}</td>
+	<td>{{ form_row(form.poids) }}</td>
+	<td>{{ form_row(form.classeAge) }}</td>
+	<td>{{ form_row(form.modeDecouverte) }}</td>
+</tr>
+<tr>
+	<td>{{ form_row(form.typeActivite) }}</td>
+	<td>{{ form_row(form.traceBlessures) }}</td>
+	<td>{{ form_row(form.observations) }}</td>
+	
+</tr>
+
+
+</table>
+
+
+
+
+    <input type="submit" />
+{{ form_end(form) }}
+
+ 
+{% endblock %}
+{% block javascripts %}
+    {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
+
+	<script type="text/javascript" src="{{ asset('bootstrap/js/script2.js') }}"></script>
+  {% endblock %}

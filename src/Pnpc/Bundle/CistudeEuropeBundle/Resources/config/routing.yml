@@ -1,3 +1,59 @@
 pnpc_cistude_europe_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: PnpcCistudeEuropeBundle:Default:index }
+    pattern:  /
+    defaults: { _controller: PnpcCistudeEuropeBundle:CistudeEurope:index }
+ 
+pnpc_cistude_europe_voir:
+    pattern:      /liste/
+    defaults:  { _controller: PnpcCistudeEuropeBundle:CistudeEurope:voir }
+
+pnpc_cistude_europe_voirplus:
+    pattern:      /liste/{id}
+    defaults:  { _controller: PnpcCistudeEuropeBundle:CistudeEurope:voirplus }
+    requirements:
+        id:  \d+
+
+pnpc_cistude_europe_ajouter:
+    pattern:      /ajouter
+    defaults:  { _controller: PnpcCistudeEuropeBundle:CistudeEurope:ajouter }
+ 
+pnpc_cistude_europe_modifier:
+    pattern:      /modifier/{id}
+    defaults:  { _controller: PnpcCistudeEuropeBundle:CistudeEurope:modifier }
+    requirements:
+        id:  \d+
+ 
+pnpc_cistude_europe_supprimer:
+    pattern:      /supprimer/{id}
+    defaults:  { _controller: PnpcCistudeEuropeBundle:CistudeEurope:supprimer }
+    requirements:
+        id:  \d+
+
+pnpc_cistude_europe_supprimerdoc:
+    pattern:      /supprimerdoc/{id}
+    defaults:  { _controller: PnpcCistudeEuropeBundle:CistudeEurope:supprimerdoc }
+    requirements:
+        id:  \d+
+
+pnpc_cistude_europe_diapo:
+    pattern:      /photos/
+    defaults:  { _controller: PnpcCistudeEuropeBundle:CistudeEurope:photo }
+
+pnpc_cistude_europe_doc:
+    pattern:      /documents/
+    defaults:  { _controller: PnpcCistudeEuropeBundle:CistudeEurope:doc }
+
+pnpc_cistude_europe_upload:
+    pattern:      /CistudeEurope/documents/upload
+    defaults:  { _controller: PnpcCistudeEuropeBundle:CistudeEurope:upload }
+
+pnpc_cistude_europe_uploadImage:
+    pattern:      /photos/upload
+    defaults:  { _controller: PnpcCistudeEuropeBundle:CistudeEurope:uploadImage }
+
+pnpc_cistude_europe_request_form:
+    pattern: /liste/request_form
+    defaults: {_controller: PnpcCistudeEuropeBundle:CistudeEurope:searchform}
+
+pnpc_cistude_europe_request_result:
+    pattern: /liste/request_result
+    defaults: {_controller: PnpcCistudeEuropeBundle:CistudeEurope:requete}

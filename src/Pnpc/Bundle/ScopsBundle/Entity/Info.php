@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Info
  *
- * @ORM\Table(name="all_info")
+ * @ORM\Table(name="Scops_info")
  * @ORM\Entity(repositoryClass="Pnpc\Bundle\ScopsBundle\Entity\InfoRepository")
  */
 class Info

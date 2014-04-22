@@ -92,7 +92,7 @@ optimales et efficaces ciblées sur une ou quelques espèces. Quand cela est pos
         echo "
 \t<script type=\"text/javascript\" src=\"";
         // line 50
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bootstrap/js/script2p.js"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bootstrap/js/script2.js"), "html", null, true);
         echo "\"></script>
   ";
     }

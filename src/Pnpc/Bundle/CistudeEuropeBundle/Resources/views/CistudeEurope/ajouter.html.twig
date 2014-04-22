@@ -1,0 +1,113 @@
+{% extends "PnpcCistudeEuropeBundle::layout.html.twig" %}
+ 
+{% block title %}
+  Formulaire d'ajout - {{ parent() }}
+{% endblock %}
+ 
+{% block stylesheets %}
+{{ parent() }}
+{#<link rel="stylesheet" href="{{ asset('bootstrap/css/date.css') }}" type="text/css" />#}
+{% endblock %}
+
+
+{% block intern_body %}
+
+ <h2>Ajouter un nouveau baguage</h2>
+{#include "PnpcScopsBundle:scops:formulaire.html.twig" #}
+{{ form_start(form) }}
+    {{ form_errors(form) }}
+<table>
+<tr>
+    <td>{{ form_row(form.pays) }}</td>
+    <td>{{ form_row(form.codeInsee) }}</td>
+	<td>{{ form_row(form.localite) }}</td>
+    <td>{{ form_row(form.lieudit) }}</td>
+</tr>
+<tr>
+	<td>{{ form_row(form.date) }}</td>
+	<td>{{ form_row(form.protocole) }}</td>
+	<td>{{ form_row(form.temperature) }}</td>
+	<td>{{ form_row(form.nebulosite) }}</td>
+	
+</tr>
+</table>
+<table>
+<tr>
+	<td>{{ form_row(form.precipitation) }}</td>
+	<td>{{ form_row(form.vent) }}</td>
+	<td>{{ form_row(form.visibilite) }}</td>
+	<td>{{ form_row(form.autre) }}</td>
+
+</tr>
+<tr>	
+	<td>{{ form_row(form.site) }}</td>
+	<td>{{ form_row(form.modeCapture) }}</td>
+	<td>{{ form_row(form.action) }}</td>
+	<td>{{ form_row(form.numPiege) }}</td>
+	
+</tr>
+<tr>
+	<td>{{ form_row(form.latWgs84) }}</td>
+	<td>{{ form_row(form.longWgs84) }}</td>
+	<td id="search" autocomplete="off">{{ form_row(form.numSession) }}</td>
+	<div id="results"></div>
+  		
+  	
+	<td>{{ form_row(form.heureObservation) }}</td>
+</tr>
+
+</table>
+<table>
+<tr>
+	<td>{{ form_row(form.observateur1) }}</td>
+	<td>{{ form_row(form.observateur2) }}</td>
+	<td>{{ form_row(form.espece) }}</td>
+	<td>{{ form_row(form.codeMarquage) }}</td>
+</tr>
+<tr>
+	<td>{{ form_row(form.numMarquage) }}</td>
+	<td>{{ form_row(form.longueurDossiere) }}</td>
+	<td>{{ form_row(form.largeurDossiere) }}</td>
+	<td>{{ form_row(form.hauteurCarapace) }}</td>
+</tr>
+<tr>
+	<td>{{ form_row(form.longueurPlastron) }}</td>
+	<td>{{ form_row(form.largeurAvantPlastron) }}</td>
+	<td>{{ form_row(form.largeurArrierePlastron) }}</td>
+	<td>{{ form_row(form.striesVisibles) }}</td>
+</tr>
+<tr>
+	<td>{{ form_row(form.nombreStries) }}</td>
+	<td>{{ form_row(form.poids) }}</td>
+	<td>{{ form_row(form.stade) }}</td>
+	<td>{{ form_row(form.sexe) }}</td>
+</tr>
+<tr>
+	<td>{{ form_row(form.couleurYeux) }}</td>
+	<td>{{ form_row(form.couleurGeneraleDossiere) }}</td>
+	<td>{{ form_row(form.ptsTraitsJaunesDossiere) }}</td>
+	<td>{{ form_row(form.couleurGeneralePlastron) }}</td>
+</tr>
+<tr>
+	<td>{{ form_row(form.tachesPtsPlastron) }}</td>
+	<td>{{ form_row(form.corpsRepartDensitePtsTraits) }}</td>
+	<td>{{ form_row(form.corpsSignesParticuliers) }}</td>
+	<td>{{ form_row(form.tracesBlessures) }}</td>
+</tr>
+
+
+</table>
+
+{{ form_row(form.observations) }}
+
+
+    <input type="submit" />
+{{ form_end(form) }}
+
+ 
+{% endblock %}
+{% block javascripts %}
+    {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
+
+	<script type="text/javascript" src="{{ asset('bootstrap/js/script2.js') }}"></script>
+  {% endblock %}

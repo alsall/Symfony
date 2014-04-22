@@ -3,7 +3,54 @@
 {% block title %}
   {{ parent() }}
 {% endblock %}
- 
+ {% block menu %}
+ <div class="hero-unit scops">
+				
+				
+				<h1>Île de Porquerolles - HALTE MIGRATOIRE (PNRO)</h1>
+				<p>Capture et marquage de l'avifaune en migration prénuptiale</p>
+			
+		   		
+			{#<p><a class="btn btn-primary btn-large" href="http://192.168.40.12/PNPC/home/index.php">
+			Pour savoir davantage »
+			</a></p>#}
+		</div>
+		
+		<div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+    <div class="container">
+	
+     
+    <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    </a>
+    
+    <!-- Be sure to leave the brand out there if you want it shown -->
+    {#<a class="brand" href="{{ path('pnpc_scops_voir') }}"></a>#}
+     
+    <!-- Everything you want hidden at 940px or less, place within here -->
+    <div class="nav-collapse collapse">
+		<!-- .nav, .navbar-search, .navbar-form, etc -->
+		 <ul class="nav navbar-nav nav-justified">
+			<li class=""><a href="{{ path('pnpc_scops_homepage') }}">Accueil</a></li>
+				{#if is_granted("IS_AUTHENTICATED_REMEMBERED")#}
+					<li class=""><a href="{{ path('pnpc_scops_ajouter') }}">Formulaire d'ajout</a></li>
+				{#endif#}
+		
+			<li class=""><a href="{{ path('pnpc_scops_voir') }}">Liste Baguage</a></li>
+			<li class=""><a href="{{ path('pnpc_scops_diapo') }}">Galerie</a></li>
+			<li class=""><a href="{{ path('pnpc_scops_doc') }}">Documents</a></li>
+		</ul>
+    </div>
+     
+    </div>
+    </div>
+    </div>
+    {%endblock %}
+
 {% block body %}
  
   {# On définit un sous-titre commun à toutes les pages du bundle, par exemple #}

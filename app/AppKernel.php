@@ -16,23 +16,23 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            #new Scops\BagueBundle\ScopsBagueBundle(),
+          
             new Pnpc\Bundle\ScopsBundle\PnpcScopsBundle(),
-	    new Pnpc\Bundle\UserBundle\PnpcUserBundle(),
-	    new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
-	    new FOS\UserBundle\FOSUserBundle(),
-	    new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
-	    new JMS\AopBundle\JMSAopBundle(),
-	    new Avro\CsvBundle\AvroCsvBundle(),
-	    new Avro\CaseBundle\AvroCaseBundle(),
-	    //new Sonata-Projet\ExporterBundle(),
+	        new Pnpc\Bundle\UserBundle\PnpcUserBundle(),
+	        new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+	        new FOS\UserBundle\FOSUserBundle(),
+	        new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
+	        new JMS\AopBundle\JMSAopBundle(),
+	        new Avro\CsvBundle\AvroCsvBundle(),
+	        new Avro\CaseBundle\AvroCaseBundle(),
+	        //new Sonata-Projet\ExporterBundle(),
 
             new Pnpc\Bundle\TortueHermannBundle\PnpcTortueHermannBundle(),
             new Pnpc\Bundle\CistudeEuropeBundle\PnpcCistudeEuropeBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
-            //$bundles[] = new Acme\DemoBundle\AcmeDemoBundle();
+            
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();

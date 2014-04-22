@@ -1,0 +1,50 @@
+{% extends "PnpcTortueHermannBundle::layout.html.twig" %}
+ 
+{% block title %}
+  affichage  - {{ parent() }}
+{% endblock %}
+ 
+{% block intern_body %}
+<form action="{{path('pnpc_scops_request_result')}}" method="post" {{ form_enctype(form) }}>
+	<div>
+		<span>
+			<select name="champ">
+				<option value="annee">Année</option>
+				<option value="num_semaine">N° Semaine</option>
+				<option value="date">Date</option>
+				<option value="lieudit">Lieudit</option>
+				<option value="action">Action</option>
+				<option value="bague">Bague</option>
+				<option value="nom_scientifique">Nom Scientifique</option>
+				<option value="nom_vernaculaire">Nom Vernaculaire</option>
+				<option value="secteur">Secteur</option>
+				<option value="bg">Bg</option>
+			</select>
+			
+			<input type="text" id="champ_0" name="mot">
+		</span>
+		<span>
+		<a href="javascript:create_champ(1)">Ajout</a>
+		</span>
+	</div>							
+	<input type="submit" value="Envoyer" />
+</form>						
+{#<div id="requetes">
+				<span id="leschamps_0">
+								
+					<select onchange="change(this.value,this.id,0)"  name="new_champ_0" id="new_champ_0">
+					
+								</select>
+								
+								<input type="text" id="champ_0" name="mot">
+								
+								</span>
+								
+								<span id="leschamps_1"><br/>
+								<a href="javascript:create_champ(1)" class="ajout">Ajouter un champ</a>
+								</span>
+							</div>	#}							
+								
+								
+ 
+{%endblock%}

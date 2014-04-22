@@ -1,0 +1,59 @@
+pnpc_cistude_europe_homepage:
+    pattern:  /CistudeEurope/
+    defaults: { _controller: PnpcCistudeEuropeBundle:CistudeEurope:index }
+ 
+pnpc_cistude_europe_voir:
+    pattern:      /CistudeEurope/liste/
+    defaults:  { _controller: PnpcCistudeEuropeBundle:CistudeEurope:voir }
+
+pnpc_scops_voirplus:
+    pattern:      /CistudeEurope/liste/{id}
+    defaults:  { _controller: PnpcCistudeEuropeBundle:CistudeEurope:voirplus }
+    requirements:
+        id:  \d+
+
+pnpc_scops_ajouter:
+    pattern:      /CistudeEurope/ajouter
+    defaults:  { _controller: PnpcCistudeEuropeBundle:CistudeEurope:ajouter }
+ 
+pnpc_scops_modifier:
+    pattern:      /CistudeEurope/modifier/{id}
+    defaults:  { _controller: PnpcCistudeEuropeBundle:CistudeEurope:modifier }
+    requirements:
+        id:  \d+
+ 
+pnpc_scops_supprimer:
+    pattern:      /CistudeEurope/supprimer/{id}
+    defaults:  { _controller: PnpcCistudeEuropeBundle:CistudeEurope:supprimer }
+    requirements:
+        id:  \d+
+
+pnpc_scops_supprimerdoc:
+    pattern:      /CistudeEurope/supprimerdoc/{id}
+    defaults:  { _controller: PnpcCistudeEuropeBundle:CistudeEurope:supprimerdoc }
+    requirements:
+        id:  \d+
+
+pnpc_scops_diapo:
+    pattern:      /CistudeEurope/photos/
+    defaults:  { _controller: PnpcCistudeEuropeBundle:CistudeEurope:photo }
+
+pnpc_scops_doc:
+    pattern:      /CistudeEurope/documents/
+    defaults:  { _controller: PnpcCistudeEuropeBundle:CistudeEurope:doc }
+
+pnpc_scops_upload:
+    pattern:      /CistudeEurope/documents/upload
+    defaults:  { _controller: PnpcCistudeEuropeBundle:CistudeEurope:upload }
+
+pnpc_scops_uploadImage:
+    pattern:      /CistudeEurope/photos/upload
+    defaults:  { _controller: PnpcCistudeEuropeBundle:CistudeEurope:uploadImage }
+
+pnpc_scops_request_form:
+    pattern: /CistudeEurope/liste/request_form
+    defaults: {_controller: PnpcCistudeEuropeBundle:CistudeEurope:searchform}
+
+pnpc_scops_request_result:
+    pattern: /CistudeEurope/liste/request_result
+    defaults: {_controller: PnpcCistudeEuropeBundle:CistudeEurope:requete}

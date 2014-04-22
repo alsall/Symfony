@@ -24,7 +24,8 @@ class ScopsController extends Controller
 {
     	public function indexAction()
     	{
-        	return $this->render('PnpcScopsBundle:Scops:index.html.twig');
+			$cara = 'Scops';    		
+        	return $this->render('Pnpc'.$cara.'Bundle:Scops:index.html.twig');
     	}
 	
 	/**
@@ -229,11 +230,11 @@ class ScopsController extends Controller
                      ->getRepository('PnpcScopsBundle:Documents')
 					 ->findAll();
 		
-		if (!$liste) 
-		{
-         		throw $this->createNotFoundException('Oups votre base de données est vide!!! ');
+		// if (!$liste) 
+		// {
+  //        		throw $this->createNotFoundException('Oups votre base de données est vide!!! ');
 				
-		}
+		// }
 		
 		foreach($liste as $documents)
 		{

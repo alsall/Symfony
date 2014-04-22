@@ -1,0 +1,18 @@
+{% extends "PnpcTortueHermannBundle::layout.html.twig" %}
+   {%block title%}accueil {{parent()}}
+   
+   {%endblock%}
+   {%block intern_body%}
+<a class="btn alignement" href="{{ path('avro_csv_import_upload', {'alias': 'info'}) }}">Importer</a>
+		<a class="btn alignement" href="{{ path('avro_csv_export_export', {'alias': 'info'}) }}">Exporter</a>
+		<a class="btn alignement" href="{{ path('pnpc_scops_request_form')}}">Requetes</a>
+
+
+<p>aucun res</p>
+   {%endblock%}
+   
+ {% block javascripts %}
+    {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
+
+	<script type="text/javascript" src="{{ asset('bootstrap/js/script2.js') }}"></script>
+  {% endblock %}

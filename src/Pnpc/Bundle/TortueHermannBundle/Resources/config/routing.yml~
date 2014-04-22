@@ -1,0 +1,67 @@
+pnpc_tortue_hermann_homepage:
+    pattern:  /TortueHermann/hello/{name}
+    defaults: { _controller: PnpcTortueHermannBundle:Default:index }
+
+pnpc_scops_homepag:
+    pattern:  /
+    defaults: { _controller: PnpcTortueHermannBundle:TortueHermann:index}
+
+pnpc_scops_homepage:
+    pattern:      /TortueHermann
+    defaults: { _controller: PnpcTortueHermannBundle:TortueHermann:index}
+
+pnpc_scops_voir:
+    pattern:      /TortueHermann/liste/
+    defaults:  { _controller: PnpcTortueHermannBundle:TortueHermann:voir }
+
+pnpc_scops_voirplus:
+    pattern:      /TortueHermann/liste/{id}
+    defaults:  { _controller: PnpcTortueHermannBundle:TortueHermann:voirplus }
+    requirements:
+        id:  \d+
+
+pnpc_scops_ajouter:
+    pattern:      /TortueHermann/ajouter
+    defaults:  { _controller: PnpcTortueHermannBundle:TortueHermann:ajouter }
+
+pnpc_scops_modifier:
+    pattern:      /TortueHermann/modifier/{id}
+    defaults:  { _controller: PnpcTortueHermannBundle:TortueHermann:modifier }
+    requirements:
+        id:  \d+
+
+pnpc_scops_supprimer:
+    pattern:      /TortueHermann/supprimer/{id}
+    defaults:  { _controller: PnpcTortueHermannBundle:TortueHermann:supprimer }
+    requirements:
+        id:  \d+
+
+pnpc_scops_supprimerdoc:
+    pattern:      /TortueHermann/supprimerdoc/{id}
+    defaults:  { _controller: PnpcTortueHermannBundle:TortueHermann:supprimerdoc }
+    requirements:
+        id:  \d+
+
+pnpc_scops_diapo:
+    pattern:      /TortueHermann/photos/
+    defaults:  { _controller: PnpcTortueHermannBundle:TortueHermann:photo }
+
+pnpc_scops_doc:
+    pattern:      /TortueHermann/documents/
+    defaults:  { _controller: PnpcTortueHermannBundle:TortueHermann:doc }
+
+pnpc_scops_upload:
+    pattern:      /TortueHermann/documents/upload
+    defaults:  { _controller: PnpcTortueHermannBundle:TortueHermann:upload }
+
+pnpc_scops_uploadImage:
+    pattern:      /TortueHermann/photos/upload
+    defaults:  { _controller: PnpcTortueHermannBundle:TortueHermann:uploadImage }
+
+pnpc_scops_request_form:
+    pattern: /TortueHermann/liste/request_form
+    defaults: {_controller: PnpcTortueHermannBundle:TortueHermann:searchform}
+
+pnpc_scops_request_result:
+    pattern: /TortueHermann/liste/request_result
+    defaults: {_controller: PnpcTortueHermannBundle:TortueHermann:requete}
