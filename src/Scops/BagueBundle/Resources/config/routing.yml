@@ -1,3 +1,0 @@
-scops_bague_homepage:
-    pattern:  /scops
-    defaults: { _controller: ScopsBagueBundle:Default:index }

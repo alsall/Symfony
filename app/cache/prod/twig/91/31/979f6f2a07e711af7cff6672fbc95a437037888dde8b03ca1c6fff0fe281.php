@@ -375,7 +375,7 @@ class __TwigTemplate_9131979f6f2a07e711af7cff6672fbc95a437037888dde8b03ca1c6fff0
         echo "
 
 
-    <input type=\"submit\"/>
+    <input type=\"submit\" value=\"Envoyer\"/>
 ";
         // line 121
         if (isset($context["form"])) { $_form_ = $context["form"]; } else { $_form_ = null; }
