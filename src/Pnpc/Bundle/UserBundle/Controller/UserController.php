@@ -4,11 +4,12 @@ namespace Pnpc\Bundle\UserBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\SecurityContext;
-
+use Symfony\Component\HttpFoundation\Request;
+use Pnpc\Bundle\UserBundle\Form\RegistrationFormType;
 
 class UserController extends Controller
 {
-    public function loginAction()
+    public function loginAction(Request $request)
     {
 		// Si le visiteur est déjà identifié, on le redirige vers l'accueil
     if ($this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
@@ -28,7 +29,7 @@ class UserController extends Controller
       $session->remove(SecurityContext::AUTHENTICATION_ERROR);
     }
     // return $this->redirect($this->generateUrl('fos_user_security_login'));
-    
+    //$test=$_POST['colonne'];
     $csrfToken = $this->container->has('form.csrf_provider')
             ? $this->container->get('form.csrf_provider')->generateCsrfToken('authenticate')
             : null;
@@ -40,6 +41,10 @@ class UserController extends Controller
       'csrf_token' => $csrfToken,
       
     ));
+  }
+  public function showformAction(){
+
+    
   }
   
 	public function logoutAction()
