@@ -15,7 +15,7 @@ pnpc_scops:
 
 accueil:
     pattern:  /
-    defaults: {_controller:PnpcUserBundle:User:login}
+    defaults: {_controller:PnpcUserBundle:Security:login}
 
 # login_check:
     # pattern:  /login_check
@@ -28,7 +28,7 @@ AvroCsvBundle:
     resource: "@AvroCsvBundle/Resources/config/routing.yml"
 
 fos_user_security:
-    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+    resource: "@PnpcUserBundle/Resources/config/routing/security.xml"
 
 fos_user_profile:
     resource: "@FOSUserBundle/Resources/config/routing/profile.xml"

@@ -268,4 +268,15 @@ input[type=submit]:active {
 
 .lt-ie9 input[type=text], .lt-ie9 input[type=password] {
   line-height: 34px;
+   
+}
+
+.scops {
+    	border: black solid 1px;
+  	
+    	position: absolute;
+    	top: 0px;
+    	right: 0px;
+    	margin: 10px;
+    	padding: 5px;
 }
