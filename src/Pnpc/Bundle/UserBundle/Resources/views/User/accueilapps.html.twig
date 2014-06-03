@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ 
+    <title>{% block title %}Page de connexion{% endblock %}</title>
+ 
+ 
+      <!--<link rel="stylesheet" href="{{ asset('bootstrap/css/login.css') }}" type="text/css" />-->
+      <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}" type="text/css" />
+    <style>
+    #scops {
+    	border: black solid 1px;
+    	position: absolute;
+    	top: 100px;
+    	right: 100px;
+    	left: 50px;
+    	margin: 10px;
+    	padding: 5px;
+    }
+    </style>
+    </head>
+ 
+  <body>
+  	<div id="scops">
+<a href="{{ path('pnpc_scops_homepage') }}">Scops</a><br />
+<a href="{{ path('pnpc_scops_voir') }}">Scops</a><br />
+<a href="{{ path('pnpc_scops_voir') }}">Scops</a><br />
+<a href="{{ path('pnpc_scops_voir') }}">Scops</a><br />
+</div>
+    <ul class="thumbnails">
+  <li class="span4">
+<a href="#" class="thumbnail">
+<img data-src="holder.js/300x200" alt="">
+</a>
+</li>
+    blablab
+    </ul>
+    <!-- Button to trigger modal -->
+    <a href="#myModal" role="button" class="btn" data-toggle="modal">Scops</a>
+     
+    <!-- Modal -->
+    <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Modal header</h3>
+    </div>
+    <div class="modal-body">
+    <p>One fine body…</p>
+    </div>
+    <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary">Save changes</button>
+    </div>
+    </div>
+
+
+
+<body>
+<div id="dialog" title="Basic dialog">
+<p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+</div>
+
+<script>
+$(function() {
+$( "#dialog" ).dialog();
+});
+</script>
+
+
+     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
+  <script language="JavaScript" src="{{ asset('bundles/.../js/jquery.js') }}"></script>  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+ 
+  	  </body>
+</html>
